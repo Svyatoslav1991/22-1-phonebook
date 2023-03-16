@@ -1,5 +1,0 @@
-C:/Users/Svyatoslav/Desktop/C++/skillbox_homework/22/22_1_phonebook_1/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/Svyatoslav/Desktop/C++/skillbox_homework/22/22_1_phonebook_1/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Svyatoslav/Desktop/C++/skillbox_homework/22/22_1_phonebook_1/out/build/x64-Debug/22_1_phonebook_1/CMakeFiles/22_1_phonebook_1.dir
-C:/Users/Svyatoslav/Desktop/C++/skillbox_homework/22/22_1_phonebook_1/out/build/x64-Debug/22_1_phonebook_1/CMakeFiles/edit_cache.dir
-C:/Users/Svyatoslav/Desktop/C++/skillbox_homework/22/22_1_phonebook_1/out/build/x64-Debug/22_1_phonebook_1/CMakeFiles/rebuild_cache.dir
