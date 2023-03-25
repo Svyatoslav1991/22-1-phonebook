@@ -4,9 +4,10 @@
 #include <string>
 
 int main() {
-	std::cout << "\tTask 22.1 PHONEBOOK\n\n";
+	std::cout << "\tTask 22.1 PHONEBOOK\n";
 
-	std::map<std::string, std::vector<std::string>> phonebook;
+	std::map<std::string, std::string> NumberToSurname;
+	std::map<std::string, std::vector<std::string>> SurnameToNumber;
 
 	std::string action;
 	while (true)
@@ -34,21 +35,24 @@ int main() {
 
 			if (spaceIndex != std::string::npos)
 			{
-				std::string phone = action.substr(0, spaceIndex);
+				std::string number = action.substr(0, spaceIndex);
 
 				int nextIndex = action.find_first_not_of(" ", spaceIndex + 1);
 				std::string surname = action.substr(nextIndex);
-				
-				auto it = phonebook.find(surname);
 
-				if (it == phonebook.end())
+				auto it = SurnameToNumber.find(surname);
+
+				if (it == SurnameToNumber.end())
 				{
-					phonebook.insert(std::make_pair(surname, std::vector<std::string>(1, phone)));
+					SurnameToNumber.insert(std::make_pair(surname, std::vector<std::string>(1, number)));
+					NumberToSurname.insert(std::make_pair(number, surname));
 				}
 				else
 				{
-					it->second.push_back(phone);
+					it->second.push_back(number);
+					NumberToSurname.insert(std::make_pair(number, surname));
 				}
+
 				std::cout << "New subscriber added\n";
 			}
 			else
@@ -57,35 +61,22 @@ int main() {
 				{
 					//it's a phone. I need a find surname
 
-					bool isFind = false;
-					for (const auto& it : phonebook)
-					{
-						if (isFind)
-						{
-							break;
-						}
-						for (const auto& phone : it.second)
-						{
-							if (phone == action)
-							{
-								std::cout << "Surname of the owner of the number - " << it.first << ".\n";
-								isFind = true;
-								break;
-							}
-						}
-					}
+					auto it = NumberToSurname.find(action);
 
-					if (!isFind)
+					if (it == NumberToSurname.end())
 					{
 						std::cout << "This number is not in the phonebook.\n";
 					}
-
+					else
+					{
+						std::cout << "Surname of the owner of the number - " << it->second << ".\n";
+					}
 				}
 				else
 				{
-					auto it = phonebook.find(action);
+					auto it = SurnameToNumber.find(action);
 
-					if (it == phonebook.end())
+					if (it == SurnameToNumber.end())
 					{
 						std::cout << "This name is not in the telephone directory.\n";
 					}

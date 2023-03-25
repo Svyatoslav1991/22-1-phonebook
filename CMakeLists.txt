@@ -7,3 +7,4 @@ project ("22_1_phonebook_1")
 
 # Include sub-projects.
 add_subdirectory ("22_1_phonebook_1")
+
